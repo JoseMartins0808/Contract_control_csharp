@@ -1,3 +1,4 @@
+using API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -7,8 +8,20 @@ namespace API.Controllers;
 public class PersonController: ControllerBase {
 
     [HttpGet]
-    public string Hello (){
-        return "Hell O!";
+    public Person Get(){
+        Person person = new Person("Pedro", "053", true, "1234", 5);
+
+        Contract newContract = new Contract();
+
+        person.contracts.Add(newContract);
+
+        return person;
+    }
+
+    [HttpPost]
+    public Person createPerson (Person person){
+
+        return person;
     }
 
 
