@@ -9,6 +9,8 @@ public class Contract {
         this.paid = false;
     }
     
+    public int id {get; set;}
+    
     public DateTime created_at{get; set;}
 
     public string token_id{get; set;}
@@ -16,4 +18,6 @@ public class Contract {
     public double value {get; set;}
 
     public Boolean paid {get; set;}
+
+    public int person_id {get; set;}
 }

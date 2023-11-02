@@ -19,6 +19,8 @@ public class Person {
         this.contracts = new List<Contract>();
     }
 
+    public int id {get; set;}
+
     public string name {get; set; }
 
     public string password {get; set;}
@@ -31,3 +33,5 @@ public class Person {
 
     public List<Contract> contracts {get; set; }
 }
+
+//   #EuPerdiOMedoDoDotNet

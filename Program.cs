@@ -1,15 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using API.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Pode inserir aqui para o PostgreSQL, após instalar as dependências.
+builder.Services.AddDbContext<DatabaseContext>(db => db.UseInMemoryDatabase("dbContractsManagement"));
+
+// Cria-se instância sem precisar declara o "new", em toda a aplicação.
+builder.Services.AddScoped<DatabaseContext, DatabaseContext>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
